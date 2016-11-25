@@ -1,7 +1,7 @@
 
 # Streaming Tweets, enriched with sentiment, made searchable in Solr
 
-This is a Spark streaming example that filters English tweets, form the Garden Hose, with a known latitude/longititude. The tweets have been enriched with sentiment using Stanford's NLP package, and persisted to Solr so they can be searched.
+This is a Spark streaming example that filters English tweets, from the Garden Hose, with a known latitude/longititude. The tweets have been enriched with sentiment using Stanford's NLP package, and persisted to Solr so they can be searched.
 
 ### Solr
 

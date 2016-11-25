@@ -1,6 +1,10 @@
 
 # Streaming Tweets, enriched with sentiment, made searchable in Solr
 
+This is a Spark streaming example that filters English tweets, form the Garden Hose, with a known latitude/longititude. The tweets have been enriched with sentiment using Stanford's NLP package, and persisted to Solr so they can be searched.
+
+### Solr
+
 Create the Solr collection and disable multivalue for the fields:
 
     solr create_collection -c tweets_temp -d data_driven_schema_configs -shards 2 -replicationFactor 2
@@ -103,3 +107,27 @@ To make the records show up in Solr, the autoSoftCommit was set to run every sec
       <maxTime>10000</maxTime>
     </autoSoftCommit>
 
+### Example document
+
+    {
+      "responseHeader":{
+        "status":0,
+        "QTime":7,
+        "params":{
+          "q":"(sentiment:3) AND (userScreenName:TAR_1414)",
+          "indent":"true",
+          "wt":"json"}},
+      "response":{"numFound":1,"start":0,"maxScore":4.947212,"docs":[
+          {
+            "id":"802212536150093824",
+            "createdAt":"2016-11-25T18:09:07Z",
+            "userId":77349489,
+            "userScreenName":"TAR_1414",
+            "latitude":30.07883536,
+            "longitude":-95.41952513,
+            "text":"Going shopping in Old Town Spring with my family! @ Old Town Spring https://t.co/TRV4dAxQzu",
+            "lang":"en",
+            "sentiment":3,
+            "_indexed_at_tdt":"2016-11-25T18:09:09.01Z",
+            "_version_":1551994557863821312}]
+      }}

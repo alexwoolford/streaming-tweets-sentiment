@@ -58,7 +58,7 @@ public class Main {
             return doc;
         });
 
-        SolrSupport.indexDStreamOfDocs("hadoop01.woolford.io:2181/solr", "tweets_temp", 100, docs.dstream());
+        SolrSupport.indexDStreamOfDocs("hadoop01.woolford.io:2181/solr", "tweets", 100, docs.dstream());
 
         ssc.start();
         ssc.awaitTermination();

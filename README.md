@@ -7,7 +7,7 @@ This is a Spark streaming example that filters English tweets, from the Garden H
 
 Create the Solr collection and disable multivalue for the fields:
 
-    solr create_collection -c tweets_temp -d data_driven_schema_configs -shards 2 -replicationFactor 2
+    solr create_collection -c tweets -d data_driven_schema_configs -shards 2 -replicationFactor 2
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -17,7 +17,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -27,7 +27,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -37,7 +37,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -47,7 +47,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -57,7 +57,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -67,7 +67,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":false,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -77,7 +77,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -87,7 +87,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
     
     curl -X POST -H 'Content-type:application/json' --data-binary '{
       "add-field":{
@@ -97,7 +97,7 @@ Create the Solr collection and disable multivalue for the fields:
          "indexed":true,
          "required":true,
          "stored":true }
-    }' http://hadoop02.woolford.io:8983/solr/tweets_temp/schema
+    }' http://hadoop02.woolford.io:8983/solr/tweets/schema
 
 To make the records show up in Solr, the autoSoftCommit was set to run every second:
 
